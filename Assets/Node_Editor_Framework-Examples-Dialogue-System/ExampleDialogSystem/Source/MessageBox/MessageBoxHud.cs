@@ -53,8 +53,11 @@ public class MessageBoxHud : MonoBehaviour
             SetAsMultiOptionsNode((DialogMultiOptionsNode) dialogNode);
         else
             Debug.LogError("Wrong Dialog type Sent Here");
-        
-        AssignChars(dialogNode);
+
+        if (dialogNode != null)
+        {
+            AssignChars(dialogNode);
+        }
     }
 
     private void AssignChars(BaseDialogNode dialogNode)
