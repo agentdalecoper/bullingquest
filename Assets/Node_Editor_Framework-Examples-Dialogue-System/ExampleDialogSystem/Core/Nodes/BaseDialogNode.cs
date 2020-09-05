@@ -22,6 +22,10 @@ public abstract class BaseDialogNode : Node
 	public string DialogLine;
 
 	public AudioClip SoundDialog;
+	
+		
+	public Sprite LeftCharPortrait;
+	public Sprite RightCharPortrait;
 
 	public abstract BaseDialogNode Input(int inputValue);
 	public abstract bool IsBackAvailable();

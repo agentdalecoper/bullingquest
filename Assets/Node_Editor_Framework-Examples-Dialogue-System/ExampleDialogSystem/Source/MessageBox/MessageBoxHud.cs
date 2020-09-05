@@ -1,5 +1,4 @@
-﻿using ExampleDialogSystem.Core.Nodes;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MessageBoxHud : MonoBehaviour
@@ -54,19 +53,23 @@ public class MessageBoxHud : MonoBehaviour
             SetAsMultiOptionsNode((DialogMultiOptionsNode) dialogNode);
         else
             Debug.LogError("Wrong Dialog type Sent Here");
-
-        if (dialogNode is DialogTwoCharsNode node)
-        {
-            AssignChars(node);
-        }
+        
+        AssignChars(dialogNode);
     }
 
-    private void AssignChars(DialogTwoCharsNode dialogNode)
+    private void AssignChars(BaseDialogNode dialogNode)
     {
-        leftCharPortrait.sprite = dialogNode.LeftCharPortrait;
-        leftCharPortrait.gameObject.SetActive(true);
-        rightCharPortrait.sprite = dialogNode.RightCharPortrait;
-        rightCharPortrait.gameObject.SetActive(true);
+        if (dialogNode.LeftCharPortrait != null)
+        {
+            leftCharPortrait.sprite = dialogNode.LeftCharPortrait;
+            leftCharPortrait.gameObject.SetActive(true);
+        }
+
+        if (dialogNode.RightCharPortrait != null)
+        {
+            rightCharPortrait.sprite = dialogNode.RightCharPortrait;
+            rightCharPortrait.gameObject.SetActive(true);
+        }
     }
 
     private void ResetMessageBox()
@@ -75,6 +78,8 @@ public class MessageBoxHud : MonoBehaviour
 //		size.y = _initialHeight;
 //		GetComponent<RectTransform>().sizeDelta = size;
         _optionsHolder.ClearList();
+        leftCharPortrait.gameObject.SetActive(false);
+        rightCharPortrait.gameObject.SetActive(false);
     }
 
     private void DialogComplete()
@@ -92,6 +97,7 @@ public class MessageBoxHud : MonoBehaviour
         _characterPortrait.sprite = dialogNode.CharacterPotrait;
         _characterName.text = dialogNode.CharacterName;
         _sayingText.text = dialogNode.DialogLine;
+
     }
 
     private void SetAsDialogStartNode(DialogStartNode dialogStartNode)

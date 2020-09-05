@@ -43,7 +43,11 @@ public class DialogNode : BaseDialogNode
 		GUILayout.BeginHorizontal();
 		CharacterPotrait = (Sprite)EditorGUILayout.ObjectField(CharacterPotrait, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
 		CharacterName = EditorGUILayout.TextField("", CharacterName);
+		
 		GUILayout.EndHorizontal();
+		LeftCharPortrait = (Sprite)EditorGUILayout.ObjectField(LeftCharPortrait, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
+		RightCharPortrait = (Sprite)EditorGUILayout.ObjectField(RightCharPortrait, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
+
 		GUILayout.EndVertical();
 
 		GUILayout.Space(5);
