@@ -41,6 +41,9 @@ public class DialogStartNode : BaseDialogNode
 		CharacterName = EditorGUILayout.TextField("", CharacterName);
 		GUILayout.EndHorizontal();
 
+		stressLevel = EditorGUILayout.IntField("Stress", stressLevel, GUILayout.ExpandWidth(true));
+		lawLevel = EditorGUILayout.IntField("Law", lawLevel, GUILayout.ExpandWidth(true));
+
 		EditorGUILayout.EndVertical();
 
 		EditorGUIUtility.labelWidth = 90;

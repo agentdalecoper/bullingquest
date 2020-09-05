@@ -27,6 +27,9 @@ public abstract class BaseDialogNode : Node
 	public Sprite LeftCharPortrait;
 	public Sprite RightCharPortrait;
 
+	public int stressLevel;
+	public int lawLevel;
+
 	public abstract BaseDialogNode Input(int inputValue);
 	public abstract bool IsBackAvailable();
 	public abstract bool IsNextAvailable();

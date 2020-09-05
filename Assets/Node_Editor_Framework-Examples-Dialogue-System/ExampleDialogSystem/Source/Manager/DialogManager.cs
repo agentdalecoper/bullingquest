@@ -50,7 +50,10 @@ public class DialogManager : MonoBehaviour
             nodeCanvas.ActivateDialog(dialogIdToLoad, goBackToBeginning);
         }
         else
+        {
             Debug.LogError("ShowDialogWithId Not found Dialog with ID : " + dialogIdToLoad);
+            return;
+        }
 
         MessageBoxHud messageBox = _messageBoxPrefab.GetComponent<MessageBoxHud>();
         messageBox.gameObject.SetActive(true);
@@ -100,7 +103,8 @@ public class DialogManager : MonoBehaviour
 
     public void RemoveMessageBox(int dialogId)
     {
-        _messageBoxes.Remove(dialogId);
+        dialogId = dialogId + 1;
+        ShowDialogWithId(dialogId, false);
     }
 
     public void OptionSelected(int dialogId, int optionSelected)

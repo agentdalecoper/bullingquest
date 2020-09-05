@@ -47,6 +47,8 @@ public class DialogNode : BaseDialogNode
 		GUILayout.EndHorizontal();
 		LeftCharPortrait = (Sprite)EditorGUILayout.ObjectField(LeftCharPortrait, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
 		RightCharPortrait = (Sprite)EditorGUILayout.ObjectField(RightCharPortrait, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
+		stressLevel = EditorGUILayout.IntField("Stress", stressLevel, GUILayout.ExpandWidth(true));
+		lawLevel = EditorGUILayout.IntField("Law", lawLevel, GUILayout.ExpandWidth(true));
 
 		GUILayout.EndVertical();
 

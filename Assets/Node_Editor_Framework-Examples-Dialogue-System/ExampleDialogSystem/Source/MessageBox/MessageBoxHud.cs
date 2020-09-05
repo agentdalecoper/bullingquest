@@ -57,6 +57,11 @@ public class MessageBoxHud : MonoBehaviour
         if (dialogNode != null)
         {
             AssignChars(dialogNode);
+
+            Debug.Log(dialogNode.lawLevel);
+
+            LawController.Instance.level += dialogNode.lawLevel;
+            StressController.Instance.level += dialogNode.stressLevel;
         }
     }
 
@@ -88,7 +93,6 @@ public class MessageBoxHud : MonoBehaviour
     private void DialogComplete()
     {
         _dialogManager.RemoveMessageBox(_dialogId);
-        DestroyObject(gameObject);
     }
 
     private void SetAsDialogNode(DialogNode dialogNode)
@@ -97,10 +101,11 @@ public class MessageBoxHud : MonoBehaviour
         _okButton.ShowButton(true);
         _okButton.SetText(dialogNode.IsNextAvailable() ? EButtonText.NEXT : EButtonText.OKAY);
 
+        _sayingText.gameObject.SetActive(true);
+
         _characterPortrait.sprite = dialogNode.CharacterPotrait;
         _characterName.text = dialogNode.CharacterName;
         _sayingText.text = dialogNode.DialogLine;
-
     }
 
     private void SetAsDialogStartNode(DialogStartNode dialogStartNode)
@@ -123,6 +128,12 @@ public class MessageBoxHud : MonoBehaviour
         _characterPortrait.sprite = dialogNode.CharacterPotrait;
         _characterName.text = dialogNode.CharacterName;
         _sayingText.text = dialogNode.DialogLine;
+        _sayingText.gameObject.SetActive(true);
+        
+        if (string.IsNullOrEmpty(_sayingText.text))
+        {
+            _sayingText.gameObject.SetActive(false);
+        }
 
         _optionsHolder.CreateOptions(dialogNode.GetAllOptions(), OptionSelected);
         GrowMessageBox(dialogNode.GetAllOptions().Count);
