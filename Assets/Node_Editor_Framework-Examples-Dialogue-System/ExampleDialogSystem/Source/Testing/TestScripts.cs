@@ -12,7 +12,7 @@ public class TestScripts : MonoBehaviour
         DialogBlackboard.SetValue(DialogBlackboard.EDialogMultiChoiceVariables.TryingThisToo, value);
 
         Debug.Log("TestScript Update about to load dialog " + DialogIdToLoad);
-        _dialogManager.ShowDialogWithId(DialogIdToLoad, true);
+//        _dialogManager.ShowDialogWithId(DialogIdToLoad, true);
     }
 
     void Update()

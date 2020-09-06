@@ -15,6 +15,10 @@ public class DialogManager : MonoBehaviour
 
     public DialogNodeCanvas dialogCanvas;
 
+    private int dialogPointer = 0;
+    public List<DialogLoader> dialogLoaders;
+    public DialogLoader activeDialogLoader;
+
     public void Awake()
     {
         instance = this;
@@ -89,7 +93,10 @@ public class DialogManager : MonoBehaviour
         DialogNodeCanvas nodeCanvas;
         if (_dialogIdTracker.TryGetValue(dialogIdToLoad, out nodeCanvas))
         {
-            nodeCanvas.InputToDialog(dialogIdToLoad, inputValue);
+            if (nodeCanvas.InputToDialog(dialogIdToLoad, inputValue) == false)
+            {
+                _messageBoxPrefab.gameObject.SetActive(false);
+            }
         }
         else
             Debug.LogError("GiveInputToDialog Not found Dialog with ID : " + dialogIdToLoad);
@@ -109,8 +116,14 @@ public class DialogManager : MonoBehaviour
 
     public void RemoveMessageBox(int dialogId)
     {
-        dialogId = dialogId + 1;
-        ShowDialogWithId(dialogId, false);
+        _messageBoxPrefab.gameObject.SetActive(false);
+        activeDialogLoader.gameObject.SetActive(false);
+        dialogPointer++;
+        activeDialogLoader = dialogLoaders[dialogPointer];
+        activeDialogLoader.gameObject.SetActive(true);
+
+        //dialogId = dialogId + 1;
+        //ShowDialogWithId(dialogId, false);
     }
 
     public void OptionSelected(int dialogId, int optionSelected)
