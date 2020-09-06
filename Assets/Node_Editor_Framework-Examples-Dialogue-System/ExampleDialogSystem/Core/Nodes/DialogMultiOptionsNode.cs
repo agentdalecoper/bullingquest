@@ -62,8 +62,8 @@ public class DialogMultiOptionsNode : BaseDialogNode
 
     protected override void OnCreate()
     {
-        CharacterName = "Character Name";
-        DialogLine = "Dialog Line Here";
+        CharacterName = "";
+        DialogLine = "";
         CharacterPotrait = null;
 
         _options = new List<DataHolderForOption>();

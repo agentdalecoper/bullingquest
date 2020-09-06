@@ -32,8 +32,8 @@ public class DialogNode : BaseDialogNode
 
 	protected override void OnCreate ()
 	{
-		CharacterName = "Character Name";
-		DialogLine = "Insert dialog text here";
+		CharacterName = "";
+		DialogLine = "";
 		CharacterPotrait = null;
 	}
 

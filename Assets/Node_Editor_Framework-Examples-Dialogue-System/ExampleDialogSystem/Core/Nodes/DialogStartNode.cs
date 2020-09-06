@@ -28,8 +28,8 @@ public class DialogStartNode : BaseDialogNode
 	protected override void OnCreate ()
 	{
 		base.OnCreate ();
-		CharacterName = "Character name";
-		DialogLine = "Insert dialog text here";
+		CharacterName = "";
+		DialogLine = "";
 		CharacterPotrait = null;
 	}
 

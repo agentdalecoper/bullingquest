@@ -35,8 +35,8 @@ public class MultiPathSelectorNode : BaseDialogNode
 	protected override void OnCreate ()
 	{
 		base.OnCreate ();
-		CharacterName = "Character";
-		DialogLine = "Insert dialog text here";
+		CharacterName = "";
+		DialogLine = "";
 		CharacterPotrait = null;
 		ValueToTest = DialogBlackboard.EDialogMultiChoiceVariables.Random;
 		_options = new List<DataHolderForOption>();
