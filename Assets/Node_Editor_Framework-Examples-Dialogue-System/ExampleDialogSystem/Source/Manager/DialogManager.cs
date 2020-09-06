@@ -16,8 +16,8 @@ public class DialogManager : MonoBehaviour
     public DialogNodeCanvas dialogCanvas;
 
     private int dialogPointer = 0;
-    public List<DialogLoader> dialogLoaders;
-    public DialogLoader activeDialogLoader;
+    public List<GameObject> dialogLoaders;
+    public GameObject activeDialogLoader;
 
     public void Awake()
     {
