@@ -25,7 +25,7 @@ public class MessageBoxHud : MonoBehaviour
         _dialogId = dialogId;
         _dialogManager = dialogManager;
         _backButton.SetActive(false);
-        _okButton.SetText(EButtonText.OKAY);
+        _okButton.SetText("ОК");
     }
 
     //coming form button
@@ -99,7 +99,7 @@ public class MessageBoxHud : MonoBehaviour
     {
         _backButton.SetActive(dialogNode.IsBackAvailable());
         _okButton.ShowButton(true);
-        _okButton.SetText(dialogNode.IsNextAvailable() ? EButtonText.NEXT : EButtonText.OKAY);
+        _okButton.SetText(dialogNode.IsNextAvailable() ? "Далее" : "Ок");
 
         _sayingText.gameObject.SetActive(true);
 
@@ -112,7 +112,7 @@ public class MessageBoxHud : MonoBehaviour
     {
         _backButton.SetActive(dialogStartNode.IsBackAvailable());
         _okButton.ShowButton(true);
-        _okButton.SetText(dialogStartNode.IsNextAvailable() ? EButtonText.NEXT : EButtonText.OKAY);
+        _okButton.SetText(dialogStartNode.IsNextAvailable() ? "Далее" : "Ок");
 
         _characterPortrait.sprite = dialogStartNode.CharacterPotrait;
         _characterName.text = dialogStartNode.CharacterName;

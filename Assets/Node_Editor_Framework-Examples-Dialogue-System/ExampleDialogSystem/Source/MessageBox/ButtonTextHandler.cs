@@ -6,7 +6,7 @@ public class ButtonTextHandler : MonoBehaviour
     [SerializeField]
     private Text _buttonText;
 
-    public void SetText(EButtonText eButtonText)
+    public void SetText(string eButtonText)
     {
         _buttonText.text = eButtonText.ToString();
     }
