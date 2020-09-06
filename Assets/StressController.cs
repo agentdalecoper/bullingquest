@@ -11,12 +11,11 @@ public class StressController : MonoBehaviour
     private static StressController instance;
     public static StressController Instance => instance;
 
-    private TextMeshProUGUI textValue;
+    public TextMeshProUGUI textValue;
 
     private void Awake()
     {
         instance = this;
-        textValue = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Start is called before the first frame update

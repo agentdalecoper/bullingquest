@@ -11,12 +11,11 @@ public class LawController : MonoBehaviour
     private static LawController instance;
     public static LawController Instance => instance;
 
-    private TextMeshProUGUI textValue;
+    public TextMeshProUGUI textValue;
 
     private void Awake()
     {
         instance = this;
-        textValue = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
+    private static DialogManager instance;
+    public static DialogManager Instance => instance;
+    
     private Dictionary<int, DialogNodeCanvas> _dialogIdTracker;
 
     [SerializeField] private GameObject _messageBoxPrefab;
@@ -14,6 +17,9 @@ public class DialogManager : MonoBehaviour
 
     public void Awake()
     {
+        instance = this;
+        
+        
         _messageBoxes = new Dictionary<int, MessageBoxHud>();
         _dialogIdTracker = new Dictionary<int, DialogNodeCanvas>();
         _dialogIdTracker.Clear();
